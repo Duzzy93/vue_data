@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue 3 간단한 예제</title>
+</head>
+<body>
+  <div id="app">
+    <h1>카운터 예제</h1>
+    <p>카운트: {{ count }}</p>
+    <button @click="increment">증가</button>
+    <button @click="decrement">감소</button>
+  </div>
+
+  <!-- Vue 3 CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+
+    createApp({
+      setup() {
+        const count = ref(0)
+
+        const increment = () => count.value++
+        const decrement = () => count.value--
+
+        return {
+          count,
+          increment,
+          decrement
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
