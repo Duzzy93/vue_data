@@ -1,0 +1,28 @@
+<form id="loginForm">
+  <label for="uid">아이디: <input type="text" id="uid"></label>
+  <label for="upw">비밀번호: <input type="text" id="upw" /></label>
+  <button type="submit">로그인</button>
+</form>
+<script>
+  document.getElementById('loginForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const uid = document.getElementById('uid').value;
+    const upw = document.getElementById('upw').value;
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/login_process.php', true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          const response = xhr.responseText;
+          console.log(response);
+        } else {
+          console.error('Request failed with status ' + xhr.status);
+        }
+      }
+    };
+    const formData = new FormData();
+    formData.append('uid', uid);
+    formData.append('upw', upw);
+    xhr.send(formData);
+  });
+</script>
