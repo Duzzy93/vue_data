@@ -1,14 +1,11 @@
 <script>
 export default {
-  methods: {
-    onKeyupHandler() {
-      console.log('keyup event!');
-    },
-  },
+
 }
 </script>
 <template>
-  <input type="text" @keyup="onKeyupHandler" />
+  <h1>External Style</h1>
 </template>
 <style>
+@import '~/main.css';
 </style>
