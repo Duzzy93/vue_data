@@ -1,28 +1,21 @@
 <script>
-import FirstChild from './components/FirstChild.vue';
+import BasicMix from './components/BasicMix.vue';
+
 export default {
   components: {
-    FirstChild,
-  },
-  data() {
-    return {
-      parentNum: 5,
-    };
-  },
-  computed: {
-    numOddEven() {
-      return this.parentNum % 2 === 0 ? '짝수' : '홀수'
-    },
-  },
-  methods: {
-    getParentNum() {
-      return this.parentNum;
-    }
+    BasicMix,
   },
 }
 </script>
 <template>
-  <FirstChild />
+  <BasicMix>
+    <template #header="headerProps">
+      <h1>{{ headerProps.message }}</h1>
+    </template>
+    <template #main="{ count }">
+      <h1>{{ count }}</h1>
+    </template>
+  </BasicMix>
 </template>
 <style scoped>
 </style>
