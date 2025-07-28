@@ -26,9 +26,20 @@ export default {
   },
   methods: {
     addTodo(inputMsg) {
+      const now = new Date();
+      const time = `${now.getFullYear()}-${(now.getMonth() + 1)
+        .toString()
+        .padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')} ${now
+        .getHours()
+        .toString()
+        .padStart(2, '0')}:${now
+        .getMinutes()
+        .toString()
+        .padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
       const item = {
         id: Math.random(),
         msg: inputMsg,
+        time,
         completed: false,
       };
       this.todo.push(item);

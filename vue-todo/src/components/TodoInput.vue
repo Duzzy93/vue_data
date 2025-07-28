@@ -8,8 +8,11 @@ export default {
   emits: ["addTodo"],
   methods: {
     addTodo() {
+      if (!this.inputMsg.trim()) return;
+
       this.$emit('addTodo', this.inputMsg);
-      this.inputMsg = "";
+
+      this.inputMsg = ""; // 입력창 초기화
     },
   },
 }

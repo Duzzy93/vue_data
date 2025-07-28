@@ -73,6 +73,12 @@ body {
   margin: 0 10px;
 }
 
+.todo__item-time {
+  font-size: 0.8rem;
+  color: #000000;
+  margin-left: 10px;
+}
+
 .todo__item--no {
   display: flex;
   align-items: center;
@@ -116,6 +122,12 @@ body {
 
 .todo__item--completed .todo__item-text {
   text-decoration: line-through;
+  color: #808080;
+}
+
+.todo__item--completed .todo__item-time {
+  text-decoration: line-through;
+  color: #808080;
 }
 
 .todo__input {

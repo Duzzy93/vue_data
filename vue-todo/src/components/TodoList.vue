@@ -20,13 +20,14 @@ export default {
 </script>
 <template>
   <div class="todo__list">
-    <!-- 할 일 목록이 있을 때 (완료 시 .todo__item--completed 클래스 추가 )-->
+    <!-- 할 일 목록이 있을 때 -->
     <div v-for="item in computedTodo" :key="item.id"
          class="todo__item" :class="{ 'todo__item--completed': item.completed }">
       <input type="checkbox" :id="`chk${item.id.toString()}`"
              :checked="item.completed" @click="updateTodo(item.id)" />
       <label :for="`chk${item.id.toString()}`" class="todo__checkbox-label"></label>
       <span class="todo__item-text">{{ item.msg }}</span>
+      <span class="todo__item-time">{{ item.time }}</span>
       <span class="material-symbols-outlined todo__delete-icon" 
             @click="deleteTodo(item.id)">delete</span>
     </div>
